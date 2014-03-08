@@ -16,31 +16,44 @@
 
   </head>
   <body>
-
-    <div class="site">
-      <div class="header">
-        <h1 class="title"><a href="/">{{ site.name }}</a></h1>
-        <a class="extra" href="/">home</a>
+    <header id="header">
+      <div class="row">
+        <div class="large-12 columns">
+          <div id="masthead">
+            {%if page.url == "/index.html" %} <h1 class="site-title"> {% else %} <div class="site-title"> {% endif %}
+              {{ site.name }}
+            {%if page.url == "/index.html" %} </h1> {% else %} </div> {% endif %}
+          </div>
+        </div>
       </div>
 
+      <div class="row">
+        <div class="large-12 columns">
+          <nav>
+            <ul class="sub-nav">
+              <li class="{%if page.url == '/index.html'%}active{% endif %}">
+                <a href="/">Home</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
       {{ content }}
+    </main>
 
-      <div class="footer">
-        <div class="contact">
-          <p>
-            Your Name<br />
-            What You Are<br />
-            you@example.com
-          </p>
-        </div>
-        <div class="contact">
-          <p>
-            <a href="https://github.com/yourusername">github.com/yourusername</a><br />
-            <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
-          </p>
+    <footer id="footer">
+      <div class="row">
+        <div class="large-12 columns">
+          <ul class="inline-list">
+            <li><a href="//github.com/weimeng">Github</a></li>
+            <li><a href="//twitter.com/weimeng">Twitter</a></li>
+          </ul>
         </div>
       </div>
-    </div>
+    </footer>
 
   </body>
 </html>
